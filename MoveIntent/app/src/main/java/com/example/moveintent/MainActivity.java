@@ -27,9 +27,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_move :
-                Intent intent = new Intent(this,MoveActivity.class);
-                startActivity(intent);
+                Intent moveIntent = new Intent(this,MoveActivity.class);
+                startActivity(moveIntent);
                 break;
+            case R.id.btn_move_with_data:
+                Intent moveWithData = new Intent(this,MoveWithDataActivity.class);
+                moveWithData.putExtra(MoveWithDataActivity.EXTRA_NAME,"DicodingAcademy Boy");
+                moveWithData.putExtra(MoveWithDataActivity.EXTRA_AGE,5);
+                startActivity(moveWithData);
+                break;
+            case R.id.btn_move_with_object:
+                break;
+            case R.id.btn_phone:
+                break;
+            case R.id.activity_with_result:
+                break;
+                default:
         }
     }
 
