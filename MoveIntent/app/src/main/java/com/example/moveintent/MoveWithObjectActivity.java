@@ -9,6 +9,7 @@ import com.example.moveintent.Model.Person;
 public class MoveWithObjectActivity extends AppCompatActivity {
 
     TextView tvText;
+    public static final String EXTRA_PERSON ="person";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,7 @@ public class MoveWithObjectActivity extends AppCompatActivity {
 
         tvText = findViewById(R.id.tv_text);
 
-        Person person = new Person();
+        Person person = getIntent().getParcelableExtra(EXTRA_PERSON);
 
         String text = "Nama : "+person.getName()+"\nUmur : "+person.getAge()+
                 "\nEmail :"+person.getEmail()+"\nKota :"+person.getCity();

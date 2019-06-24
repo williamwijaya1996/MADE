@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == RequestCode){
             if(resultCode == Activity.RESULT_OK){
-                tvResult.setText(data.getStringExtra("result")+"");
+                tvResult.setText(data.getIntExtra("result",0)+"");
             }
         }
     }
@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 person.setAge(22);
                 person.setEmail("William@gmail.com");
                 person.setCity("Jakarta");
+
+                Intent moveWithObject = new Intent(this,MoveWithObjectActivity.class);
+                moveWithObject.putExtra(MoveWithObjectActivity.EXTRA_PERSON,person);
+                startActivity(moveWithObject);
                 break;
             case R.id.btn_phone:
                 String phoneNumber = "081219527772";
