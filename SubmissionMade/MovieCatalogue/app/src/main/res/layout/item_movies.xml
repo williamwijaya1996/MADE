@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingStandard">
+
+    <ImageView
+        android:id="@+id/img_photo"
+        android:layout_width="66dp"
+        android:layout_height="100dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/img_photo">
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="26dp"
+            android:background="@drawable/border_textview"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/rating"
+            android:text="Judul"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_judul"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/rating"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/only_text_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genre :"
+        android:layout_below="@+id/rl_judul"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/img_photo"/>
+
+    <TextView
+        android:id="@+id/text_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/only_text_genre"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/img_photo"
+        />
+
+
+</RelativeLayout>
