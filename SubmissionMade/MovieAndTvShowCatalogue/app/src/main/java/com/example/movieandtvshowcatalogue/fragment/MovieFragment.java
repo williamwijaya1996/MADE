@@ -78,8 +78,10 @@ public class MovieFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
 
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
-                startActivity(intent);
+                Intent intentMovie = new Intent(getActivity(), DetailActivity.class);
+                intentMovie.putExtra(DetailActivity.EXTRA_MOVIE,movieList);
+                intentMovie.putExtra(DetailActivity.EXTRA_POSITION,position);
+                startActivity(intentMovie);
             }
 
             @Override

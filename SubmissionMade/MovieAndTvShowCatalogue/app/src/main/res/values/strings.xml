@@ -8,6 +8,7 @@
     <string name="title_movie_tvshow">List Movie And Tv Show</string>
     <string name="title">title</string>
     <string name="genre">Genre :</string>
+    <string name="overview">Overview</string>
 
     <array name="data_photo">
         <item>@drawable/poster_venom</item>
