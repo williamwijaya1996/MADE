@@ -1,18 +1,17 @@
-package com.example.moviecatalogue.Model;
+package com.example.movieandtvshowcatalogue.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-
     private int photo,rating;
-    private String judul;
+    private String title;
     private String description;
     private String runtime;
     private String budget;
     private String revenue;
     private String genre;
-    private String tanggal;
+    private String date;
 
     public Movie(){
 
@@ -21,13 +20,13 @@ public class Movie implements Parcelable {
     protected Movie(Parcel in) {
         photo = in.readInt();
         rating = in.readInt();
-        judul = in.readString();
+        title = in.readString();
         description = in.readString();
         runtime = in.readString();
         budget = in.readString();
         revenue = in.readString();
         genre = in.readString();
-        tanggal = in.readString();
+        date = in.readString();
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
@@ -58,19 +57,12 @@ public class Movie implements Parcelable {
         this.rating = rating;
     }
 
-    public String getJudul() {
-        return judul;
-    }
-    public String getGenre() {
-        return genre;
+    public String getTitle() {
+        return title;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -105,12 +97,20 @@ public class Movie implements Parcelable {
         this.revenue = revenue;
     }
 
-    public String getTanggal() {
-        return tanggal;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
@@ -122,12 +122,12 @@ public class Movie implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(photo);
         dest.writeInt(rating);
-        dest.writeString(judul);
+        dest.writeString(title);
         dest.writeString(description);
         dest.writeString(runtime);
         dest.writeString(budget);
         dest.writeString(revenue);
         dest.writeString(genre);
-        dest.writeString(tanggal);
+        dest.writeString(date);
     }
 }

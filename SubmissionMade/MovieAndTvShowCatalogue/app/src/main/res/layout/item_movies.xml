@@ -12,7 +12,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/rl_judul"
+        android:id="@+id/rl_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/img_photo">
@@ -29,20 +29,20 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_judul"
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/rating"
-            android:text="Judul"
+            android:text="@string/title"
             android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_tanggal"
+            android:id="@+id/text_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_judul"
+            android:layout_below="@id/text_title"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/rating"
@@ -55,8 +55,8 @@
         android:id="@+id/only_text_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre :"
-        android:layout_below="@+id/rl_judul"
+        android:text="@string/genre"
+        android:layout_below="@+id/rl_title"
         android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/img_photo"/>
@@ -66,7 +66,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/only_text_genre"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/img_photo"
         />
