@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class ListTvShowAdapter extends RecyclerView.Adapter<ListTvShowAdapter.CategoryViewHolder> {
 
-    private Context context;
+
     private ArrayList<TvShow> listTvShow;
 
-    public ListTvShowAdapter(Context context) {
-        this.context = context;
+    public ListTvShowAdapter(ArrayList<TvShow> listTvShow) {
+        this.listTvShow = listTvShow;
     }
 
     public ArrayList<TvShow> getListTvShow() {

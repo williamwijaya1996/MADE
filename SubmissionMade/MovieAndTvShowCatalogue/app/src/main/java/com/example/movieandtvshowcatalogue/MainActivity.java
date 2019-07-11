@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frame_layout,currentFragment);
+        transaction.replace(R.id.frame_layout,currentFragment);
         transaction.commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -94,4 +94,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

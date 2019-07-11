@@ -19,11 +19,15 @@ import java.util.ArrayList;
 public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.CategoryViewHolder> {
 
 
-    private Context context;
+    //private Context context;
     public ArrayList<Movie> listMovie;
 
-    public ListMovieAdapter(Context context) {
+    /*public ListMovieAdapter(Context context) {
         this.context = context;
+    }*/
+
+    public ListMovieAdapter(ArrayList<Movie> listMovie) {
+        this.listMovie = listMovie;
     }
 
     public void setListMovie(ArrayList<Movie> listMovie) {

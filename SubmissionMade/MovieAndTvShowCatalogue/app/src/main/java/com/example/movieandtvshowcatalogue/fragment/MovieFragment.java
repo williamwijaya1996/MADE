@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class MovieFragment extends Fragment {
     private int[] dataRating;
     private TypedArray dataPhoto;
     private ArrayList<Movie> movieList = new ArrayList<>();
+    ListMovieAdapter listMovieAdapter;
 
     public MovieFragment() {
         // Required empty public constructor
@@ -66,11 +68,11 @@ public class MovieFragment extends Fragment {
         showRecyclerViewList();
     }
 
-    private void showRecyclerViewList(){
+    private void showRecyclerViewList() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        ListMovieAdapter listMovieAdapter = new ListMovieAdapter(getContext());
-        listMovieAdapter.setListMovie(movieList);
+        listMovieAdapter = new ListMovieAdapter(movieList);
+        listMovieAdapter.setListMovie(getDataMovie());
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(listMovieAdapter);
 
@@ -79,8 +81,9 @@ public class MovieFragment extends Fragment {
             public void onClick(View view, int position) {
 
                 Intent intentMovie = new Intent(getActivity(), DetailActivity.class);
-                intentMovie.putExtra(DetailActivity.EXTRA_MOVIE,movieList);
-                intentMovie.putExtra(DetailActivity.EXTRA_POSITION,position);
+                intentMovie.putExtra(DetailActivity.EXTRA_MOVIE, movieList);
+                intentMovie.putExtra(DetailActivity.EXTRA_FROM, DetailActivity.EXTRA_FROM_MOVIE);
+                intentMovie.putExtra(DetailActivity.EXTRA_POSITION, position);
                 startActivity(intentMovie);
             }
 
@@ -91,7 +94,8 @@ public class MovieFragment extends Fragment {
         }));
     }
 
-    private void getDataMovie() {
+    private ArrayList<Movie> getDataMovie() {
+        movieList.clear();
 
         for (int i = 0; i < dataTitle.length; i++) {
             Movie movie = new Movie();
@@ -103,11 +107,18 @@ public class MovieFragment extends Fragment {
             movie.setDate(dataDate[i]);
             movie.setGenre(dataGenre[i]);
             movie.setRating(dataRating[i]);
-            movie.setPhoto(dataPhoto.getResourceId(i,-1));
+            movie.setPhoto(dataPhoto.getResourceId(i, -1));
 
             movieList.add(movie);
         }
-
+        return movieList;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("Movie","onstart");
+        listMovieAdapter.notifyDataSetChanged();
+        recyclerView.invalidate();
+    }
 }

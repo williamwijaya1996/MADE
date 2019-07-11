@@ -32,6 +32,7 @@ public class TvShowFragment extends Fragment {
     private int[] dataRating;
     private TypedArray dataPhoto;
     private ArrayList<TvShow> tvShowsList = new ArrayList<>();
+    ListTvShowAdapter listTvShowAdapter;
 
     public TvShowFragment() {
         // Required empty public constructor
@@ -70,9 +71,11 @@ public class TvShowFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
 
-
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
-                startActivity(intent);
+                Intent intentTvShow = new Intent(getActivity(), DetailActivity.class);
+                intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowsList);
+                intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FROM_TVSHOW);
+                intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
+                startActivity(intentTvShow);
             }
 
             @Override
@@ -86,14 +89,15 @@ public class TvShowFragment extends Fragment {
     private void showRecyclerViewList(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        ListTvShowAdapter listTvShowAdapter = new ListTvShowAdapter(getContext());
-        listTvShowAdapter.setListTvShow(tvShowsList);
+        listTvShowAdapter = new ListTvShowAdapter(tvShowsList);
+        listTvShowAdapter.setListTvShow(getDataTvShow());
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(listTvShowAdapter);
     }
 
-    private void getDataTvShow(){
+    private ArrayList<TvShow> getDataTvShow(){
 
+        tvShowsList.clear();
         for (int i =0; i<dataTitle.length;i++){
             TvShow tvShow = new TvShow();
             tvShow.setTitle(dataTitle[i]);
@@ -108,5 +112,14 @@ public class TvShowFragment extends Fragment {
 
             tvShowsList.add(tvShow);
         }
+
+        return tvShowsList;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        listTvShowAdapter.notifyDataSetChanged();
+        recyclerView.invalidate();
     }
 }

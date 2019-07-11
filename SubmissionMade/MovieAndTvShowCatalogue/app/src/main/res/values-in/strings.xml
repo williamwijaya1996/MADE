@@ -1,2 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string name="app_name">Katalog Film dan Acara Tv</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">Film</string>
+    <string name="tv_show">Acara Tv</string>
+    <string name="title_movie_tvshow">Daftar Film dan Acara Tv</string>
+    <string name="title">judul</string>
+    <string name="genre">Aliran :</string>
+    <string name="overview">Ikhtisar</string>
+    <string name="more_information">Informasi Lebih Lanjut</string>
+    <string name="runtime">Waktu jalan :</string>
+    <string name="budget">Anggaran :</string>
+    <string name="revenue">Pendapatan :</string>
+    <string name="status">Status :</string>
+    <string name="detail_movie">Perincian Film</string>
+    <string name="detail_tvshow">Perincian Acara Tv</string>
+
+    <array name="data_photo">
+        <item>@drawable/poster_venom</item>
+        <item>@drawable/poster_spiderman</item>
+        <item>@drawable/poster_bumblebee</item>
+        <item>@drawable/poster_bohemian</item>
+        <item>@drawable/poster_aquaman</item>
+        <item>@drawable/poster_mortalengine</item>
+        <item>@drawable/poster_fanstastikbeast</item>
+        <item>@drawable/poster_greenbook</item>
+        <item>@drawable/poster_blackpanter</item>
+        <item>@drawable/poster_ralph</item>
+    </array>
+
+    <string-array name="data_title">
+        <item>Venom (2018)</item>
+        <item>Spider-Man: Into the Spider-Verse</item>
+        <item>Bumblebee</item>
+        <item>Bohemian Rhapsody</item>
+        <item>Aquaman</item>
+        <item>Mortal Engines</item>
+        <item>Fantastic Beasts: The Crimes of Grindelwald</item>
+        <item>Green Book</item>
+        <item>Black Panther</item>
+        <item>Ralph Breaks the Internet</item>
+
+    </string-array>
+
+    <string-array name="data_description">
+        <item>Jurnalis investigasi Eddie Brock mencoba untuk kembali setelah skandal, tetapi secara tidak sengaja menjadi tuan rumah Venom, seorang simbiot alien yang sangat kuat dan sakti. Segera, ia harus mengandalkan kekuatan barunya untuk melindungi dunia dari organisasi bayangan yang mencari simbiosis mereka sendiri.</item>
+        <item>Miles Morales menyulap hidupnya antara menjadi siswa sekolah menengah dan menjadi manusia laba-laba. Ketika Wilson \"Kingpin\" Fisk menggunakan collider super, yang lain dari seberang Spider-Verse diangkut ke dimensi ini.</item>
+        <item>Dalam pelarian pada tahun 1987, Bumblebee menemukan tempat perlindungan di tempat barang rongsokan di kota pantai kecil California. Charlie, di puncak usia 18 tahun dan berusaha menemukan tempatnya di dunia, menemukan Bumblebee, pertempuran penuh luka dan patah. Ketika Charlie menghidupkannya, dia dengan cepat mengetahui bahwa ini bukan bug VW kuning biasa.</item>
+        <item>Penyanyi Freddie Mercury, gitaris Brian May, drummer Roger Taylor dan gitaris bass John Deacon membuat dunia musik terguncang ketika mereka membentuk band rock \'n\' roll Queen pada tahun 1970. Lagu-lagu hit menjadi klasik instan. Ketika gaya hidup Merkurius yang semakin liar mulai lepas kendali, Ratu segera menghadapi tantangan terbesarnya -
+  menemukan cara untuk menjaga band bersama di tengah kesuksesan dan kelebihan.</item>
+        <item>Dulunya merupakan rumah bagi peradaban paling maju di Bumi, Atlantis sekarang merupakan kerajaan bawah laut yang diperintah oleh Raja Orm yang haus kekuasaan. Dengan pasukan yang sangat besar, Orm berencana untuk menaklukkan orang-orang samudera yang tersisa dan kemudian ke permukaan dunia. Yang menghalangi jalannya adalah Arthur Curry, saudara tiri manusia setengah manusia Orm dan pewaris sejati takhta.</item>
+        <item>Beribu-ribu tahun di masa depan, kota-kota di bumi menjelajah dunia dengan roda besar, saling melahap dalam perjuangan untuk sumber daya yang semakin berkurang. Di salah satu kota traksi besar ini, London tua, Tom Natsworthy mengalami perjumpaan tak terduga dengan seorang wanita muda misterius dari daerah terlantar yang akan mengubah jalan hidupnya selamanya.</item>
+        <item>Gellert Grindelwald telah lolos dari penjara dan mulai mengumpulkan pengikut untuk tujuan-nya - meninggikan penyihir di atas semua makhluk non magis. Satu-satunya yang mampu menghentikannya adalah penyihir yang pernah ia sebut teman terdekatnya, Albus Dumbledore. Namun, Dumbledore perlu mencari bantuan dari penyihir yang pernah menggagalkan Grindelwald sebelumnya, mantan muridnya Newt Scamander, yang setuju untuk membantu, tidak menyadari bahaya yang ada di depan. Garis digambar saat cinta dan kesetiaan diuji, bahkan di antara teman dan keluarga yang paling sejati, di dunia sihir yang semakin terpecah.</item>
+        <item>Tony Lip, seorang penjaga di tahun 1962, disewa untuk mengendarai pianis Don Shirley dalam tur melalui Deep South pada hari-hari ketika orang Afrika-Amerika, dipaksa untuk menemukan akomodasi dan layanan alternatif karena undang-undang pemisahan di bawah Garis Mason-Dixon, bergantung pada panduan yang disebut Buku Hijau Motor Negro.</item>
+        <item>Raja T\'Challa pulang dari Amerika ke negara Wakanda yang tertutup dan berteknologi maju untuk melayani sebagai pemimpin baru negaranya. Namun, T\'Challa segera menemukan bahwa ia ditantang untuk naik takhta oleh faksi di negaranya sendiri maupun di luar. Menggunakan kekuatan yang disediakan untuk raja-raja Wakandan, T\'Challa mengasumsikan mantel Black Panther untuk bergabung dengan pacar Nakia, ibu-ratu, saudara perempuan-anak kandungnya, anggota Dora Milaje (pasukan khusus \'Wakandan\') dan seorang agen rahasia Amerika. untuk mencegah Wakanda diseret ke dalam perang dunia.</item>
+        <item>Penjahat video game, Ralph dan rekan-rekannya yang tidak sesuai, Vanellope von Schweetz harus mengambil risiko dengan melakukan perjalanan ke World Wide Web untuk mencari bagian pengganti untuk menyelamatkan video game Vanellope, \"Sugar Rush.\" Di atas kepala mereka, Ralph dan Vanellope mengandalkan warga internet - netizen - untuk membantu menavigasi jalan mereka, termasuk seorang pengusaha bernama Yesss, yang merupakan algoritma kepala dan jantung dan jiwa dari situs pembuat tren BuzzzTube .</item>
+    </string-array>
+
+
+    <string-array name="data_date">
+        <item>Oktober 5, 2018</item>
+        <item>Desember 14, 2018</item>
+        <item>Desember 21, 2018</item>
+        <item>November 2, 2018</item>
+        <item>Desember 21, 2018</item>
+        <item>Desember 14, 2018</item>
+        <item>November 16, 2018</item>
+        <item>November 16, 2018</item>
+        <item>Februari 16, 2018</item>
+        <item>November 21, 2018</item>
+    </string-array>
+
+    <integer-array name="data_rating">
+        <item>66</item>
+        <item>84</item>
+        <item>65</item>
+        <item>81</item>
+        <item>68</item>
+        <item>60</item>
+        <item>69</item>
+        <item>83</item>
+        <item>74</item>
+        <item>72</item>
+    </integer-array>
+
+    <string-array name="data_budget">
+        <item>$116,000,000.00</item>
+        <item>$90,000,000.00</item>
+        <item>$135,000,000.00</item>
+        <item>$52,000,000.00</item>
+        <item>$160,000,000.00</item>
+        <item>$100,000,000.00</item>
+        <item>$200,000,000.00</item>
+        <item>$23,000,000.00</item>
+        <item>$200,000,000.00</item>
+        <item>$175,000,000.00</item>
+    </string-array>
+
+    <string-array name="data_revenue">
+        <item>$855,013,954.00</item>
+        <item>$375,450,417.00</item>
+        <item>$465,895,025.00</item>
+        <item>$835,137,710.00</item>
+        <item>$1,143,689,193.00</item>
+        <item>$104,236,467.00</item>
+        <item>$653,355,901.00</item>
+        <item>$319,700,000.00</item>
+        <item>$1,346,739,107.00</item>
+        <item>$529,221,154.00</item>
+    </string-array>
+
+    <string-array name="data_runtime">
+        <item>1jam 52m</item>
+        <item>1jam 57m</item>
+        <item>1jam 54m</item>
+        <item>2jam 15m</item>
+        <item>2jam 24m</item>
+        <item>2jam 9m</item>
+        <item>2jam 14m</item>
+        <item>2jam 10m</item>
+        <item>2jam 14m</item>
+        <item>1jam 52m</item>
+    </string-array>
+
+    <string-array name="data_genre">
+        <item>Fiksi Ilmiah, Aksi</item>
+        <item>Aksi, Petualangan, Animasi, Fiksi Ilmiah, Komedi</item>
+        <item>Aksi, Petualangan, Fiksi Ilmiah</item>
+        <item>Drama, Musik</item>
+        <item>Aksi, Petualangan, Fantasi</item>
+        <item>Petualangan, Fantasi</item>
+        <item>Petualangan</item>
+        <item>Drama, Komedi</item>
+        <item>Aksi, Petualangan, Fantasi, Fiksi Ilmiah</item>
+        <item>Keluarga, Animasi, Komedi, Petualangan</item>
+    </string-array>
+
+    <string-array name="data_tvshow_title">
+        <item>Final Space</item>
+        <item>Krypton</item>
+        <item>Legacies</item>
+        <item>Goblin Slayer</item>
+        <item>The Resident</item>
+        <item>Titans</item>
+        <item>Violet Evergarden</item>
+        <item>Siren</item>
+        <item>Baki</item>
+        <item>The Rain</item>
+    </string-array>
+
+    <array name="data_tvshow_photo">
+        <item>@drawable/poster_tvshow_finalspace</item>
+        <item>@drawable/poster_tvshow_krypton</item>
+        <item>@drawable/poster_tvshow_legacies</item>
+        <item>@drawable/poster_tvshow_goblinslayer</item>
+        <item>@drawable/poster_tvshow_theresident</item>
+        <item>@drawable/poster_tvshow_titans</item>
+        <item>@drawable/poster_tvshow_violetevergarden</item>
+        <item>@drawable/poster_tvshow_siren</item>
+        <item>@drawable/poster_tvshow_baki</item>
+        <item>@drawable/poster_tvshow_therain</item>
+    </array>
+
+    <string-array name="data_tvshow_date">
+        <item>Februari 26, 2018</item>
+        <item>Maret 21, 2018</item>
+        <item>Oktober 25, 2018</item>
+        <item>Oktober 7, 2018</item>
+        <item>Januari 21, 2018</item>
+        <item>Oktober 12, 2018</item>
+        <item>Januari 11, 2018</item>
+        <item>Maret 29, 2018</item>
+        <item>Juni 26, 2018</item>
+        <item>Mei 4, 2018</item>
+    </string-array>
+
+    <integer-array name="data_tvshow_rating">
+        <item>83</item>
+        <item>67</item>
+        <item>69</item>
+        <item>78</item>
+        <item>74</item>
+        <item>73</item>
+        <item>83</item>
+        <item>73</item>
+        <item>67</item>
+        <item>65</item>
+    </integer-array>
+    <string-array name="data_tvshow_description">
+        <item>Seorang astronot bernama Gary dan sahabat karib Mooncake yang menghancurkan planetnya memulai perjalanan berseri melalui ruang untuk membuka misteri \"Ruang Akhir,\" titik terakhir di alam semesta, jika memang ada.</item>
+        <item>Ditetapkan dua generasi sebelum penghancuran planet rumah Man of Steel yang legendaris, Krypton mengikuti kakek Superman -yang rumahnya El dikucilkan dan dipermalukan - saat dia berjuang untuk menebus kehormatan keluarganya dan menyelamatkan dunianya yang tercinta dari kekacauan.</item>
+        <item>Di tempat di mana para penyihir muda, vampir, dan manusia serigala dibesarkan untuk menjadi diri terbaik mereka terlepas dari impuls terburuk mereka, putri Klaus Mikaelson, 17 tahun Hope Mikaelson, kembar Alaric Saltzman, Lizzie dan Josie Saltzman, antara lain, datang usia menjadi pahlawan dan penjahat di The Salvatore School for the Young and Gifted.</item>
+        <item>Seorang pendeta muda telah membentuk pesta pertualangan pertamanya, tetapi segera mereka mendapati diri mereka dalam kesulitan. Adalah Pembunuh Goblin yang datang untuk menyelamatkan mereka — seorang pria yang mendedikasikan hidupnya untuk memusnahkan semua goblin, dengan cara apa pun yang diperlukan. Dan ketika rumor tentang prestasinya mulai beredar, tidak ada yang tahu siapa yang akan datang memanggil berikutnya ...</item>
+        <item>Seorang residen senior yang tangguh dan cemerlang memandu seorang dokter muda yang idealis melewati hari pertamanya, menarik kembali tirai tentang apa yang sebenarnya terjadi, baik dan buruk, dalam kedokteran modern.</item>
+        <item>Sebuah tim pahlawan super muda yang dipimpin oleh Nightwing (sebelumnya Robin pertama Robin) terbentuk untuk memerangi kejahatan dan bahaya lainnya.</item>
+        <item>Perang telah berakhir, dan Violet Evergarden membutuhkan pekerjaan. Luka dan tanpa emosi, ia mengambil pekerjaan sebagai penulis surat untuk memahami dirinya sendiri dan masa lalunya.</item>
+        <item>Kota pesisir Bristol Cove terkenal dengan legenda pernah menjadi rumah bagi putri duyung. Ketika kedatangan seorang gadis misterius membuktikan cerita rakyat ini terlalu benar, pertempuran antara manusia dan laut berubah sangat kejam ketika makhluk-makhluk predator ini kembali untuk merebut kembali hak mereka atas lautan.</item>
+        <item>Sang protagonis, Baki Hanma, berlatih dengan fokus yang kuat untuk menjadi cukup kuat untuk melampaui ayahnya, Yujiro Hanma, petarung terkuat di dunia. Lima dari terpidana mati paling kejam dan brutal di dunia berkumpul untuk menghadapi Baki. Tujuan mereka adalah untuk merasakan kekalahan - kekuatan dan keterampilan mereka yang tak tertandingi telah membuat mereka bosan dengan kehidupan itu sendiri, dan mereka sekarang mencari Baki dengan harapan bahwa ia dapat mengalahkan dan benar-benar menghancurkan mereka. Dalam krisis ini, prajurit seni bela diri bawah tanah lainnya berkumpul untuk bertarung di sisi Baki: Kaoru Hanayama, Gouki Shibukawa, Retsu Kaioh, dan Doppo Orochi. Pertikaian epik antara terpidana mati yang kejam dan Baki dan teman-temannya dimulai</item>
+        <item>Setelah virus brutal menyapu bersih sebagian besar penduduk, dua saudara kandung memulai upaya mencari keamanan. Serial thriller Skandinavia.</item>
+    </string-array>
+
+    <string-array name="data_tvshow_runtime">
+        <item>22m</item>
+        <item>45m</item>
+        <item>43m</item>
+        <item>24m</item>
+        <item>42m</item>
+        <item>43m</item>
+        <item>25m</item>
+        <item>42m</item>
+        <item>24m</item>
+        <item>45m</item>
+    </string-array>
+
+    <string-array name="data_tvshow_genre">
+        <item>Animasi, Aksi, Petualangan</item>
+        <item>Aksi, Petualangan, Drama, Fiksi Ilmiah, Fantasi</item>
+        <item>Drama, Fiksi Ilmiah, Misteri</item>
+        <item>Animasi, Aksi, Petualangan, Fiksi Ilmiah, Fantasi</item>
+        <item>Drama</item>
+        <item>Aksi, Petualangan, Fiksi Ilmiah, Fantasi, Drama</item>
+        <item>Animasi, Drama</item>
+        <item>Drama, Fiksi Ilmiah, Fantasi</item>
+        <item>Animasi, Aksi, Petualangan, Kejahatan, Drama</item>
+        <item>Drama, Misteri, Fiksi Ilmiah, Fantasi</item>
+    </string-array>
+
+    <string-array name="data_tvshow_orilanguage">
+        <item>Inggris</item>
+        <item>Inggris</item>
+        <item>Inggris</item>
+        <item>Jepang</item>
+        <item>Inggris</item>
+        <item>Inggris</item>
+        <item>Jepang</item>
+        <item>Inggris</item>
+        <item>Jepang</item>
+        <item>Denmark</item>
+    </string-array>
+    <string-array name="data_tvshow_status">
+        <item>Kembali Seri</item>
+        <item>Kembali Seri</item>
+        <item>Kembali Seri</item>
+        <item>Selesai</item>
+        <item>Kembali Seri</item>
+        <item>Kembali Seri</item>
+        <item>Selesai</item>
+        <item>Kembali Seri</item>
+        <item>Selesai</item>
+        <item>Kembali Seri</item>
+    </string-array>
+</resources>
