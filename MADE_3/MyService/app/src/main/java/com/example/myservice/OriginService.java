@@ -26,7 +26,8 @@ public class OriginService extends Service implements DummyAsyncCallback {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(ORIGIN_SERVICE, "OriginService dijalankan");
+        Log.d(TAG, "OriginService dijalankan");
+
         DummyAsync dummyAsync = new DummyAsync(this);
         dummyAsync.execute();
         return START_STICKY;
