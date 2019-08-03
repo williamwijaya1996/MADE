@@ -1,6 +1,8 @@
 package com.example.myviewmodel;
 
 import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,8 +29,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainViewModel = ViewModelProvider.of(this).get(MainViewModel.class);
-        mainViewModel.getWeathers().observe(this, getWeather);
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mainViewModel.getWeathers().observe(this, new android.arch.lifecycle.Observer<ArrayList<WeatherItems>>() {
+            @Override
+            public void onChanged(@Nullable ArrayList<WeatherItems> weatherItems) {
+                if (weatherItems != null) {
+                    adapter.setData(weatherItems);
+                }
+            }
+        });
 
         adapter = new WeatherAdapter();
         adapter.notifyDataSetChanged();
@@ -43,14 +52,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnCity).setOnClickListener(myListener);
     }
 
-    private Observer<ArrayList<WeatherItems>> getWeather = new Observer<ArrayList<WeatherItems>>() {
-        @Override
-        public void onChanged(ArrayList<WeatherItems> weatherItems) {
-            if (weatherItems != null) {
-                adapter.setData(weatherItems);
-            }
-        }
-    };
+
 
     View.OnClickListener myListener = new View.OnClickListener() {
         @Override

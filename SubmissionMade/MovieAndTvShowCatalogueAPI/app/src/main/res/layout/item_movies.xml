@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingStandard">
+
+    <ImageView
+        android:id="@+id/img_photo"
+        android:layout_width="66dp"
+        android:layout_height="100dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/img_photo">
+
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_title"
+            android:layout_marginTop="5dp"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/only_text_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/popularity"
+        android:layout_below="@+id/rl_title"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/img_photo"/>
+
+    <TextView
+        android:id="@+id/text_popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/only_text_genre"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/img_photo"
+        />
+
+
+</RelativeLayout>
