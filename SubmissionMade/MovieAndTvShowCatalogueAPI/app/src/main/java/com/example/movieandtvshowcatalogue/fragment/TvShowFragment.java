@@ -22,7 +22,6 @@ import com.example.movieandtvshowcatalogue.adapter.ListItemListener;
 import com.example.movieandtvshowcatalogue.adapter.ListTvShowAdapter;
 import com.example.movieandtvshowcatalogue.api.ApiInterface;
 import com.example.movieandtvshowcatalogue.config.Constants;
-import com.example.movieandtvshowcatalogue.model.TvShow;
 import com.example.movieandtvshowcatalogue.model.TvShowApi;
 import com.example.movieandtvshowcatalogue.model.TvShowApiResponse;
 
@@ -41,7 +40,6 @@ public class TvShowFragment extends Fragment {
 
     RecyclerView recyclerView;
     ProgressBar progressBar;
-    private ArrayList<TvShow> tvShowsList = new ArrayList<>();
     private ArrayList<TvShowApi> tvShowListApi = new ArrayList<>();
     ListTvShowAdapter listTvShowAdapter;
     private final String TAG = "Mydebug_TvShow";
@@ -117,7 +115,7 @@ public class TvShowFragment extends Fragment {
             public void onClick(View view, int position) {
 
                 Intent intentTvShow = new Intent(getActivity(), DetailActivity.class);
-                intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowsList);
+                intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowListApi);
                 intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FROM_TVSHOW);
                 intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
                 startActivity(intentTvShow);
@@ -139,7 +137,6 @@ public class TvShowFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-       // listTvShowAdapter.notifyDataSetChanged();
         recyclerView.invalidate();
     }
 }

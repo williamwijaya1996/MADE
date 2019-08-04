@@ -41,8 +41,6 @@ public class MovieFragment extends Fragment {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     private ArrayList<MovieApi> movieListApi = new ArrayList<>();
-
-    private ArrayList<MovieApi> movieList = new ArrayList<>();
     ListMovieAdapter listMovieAdapter;
 
     public MovieFragment() {
@@ -120,7 +118,7 @@ public class MovieFragment extends Fragment {
             public void onClick(View view, int position) {
 
                 Intent intentMovie = new Intent(getActivity(), DetailActivity.class);
-                intentMovie.putExtra(DetailActivity.EXTRA_MOVIE, movieList);
+                intentMovie.putExtra(DetailActivity.EXTRA_MOVIE, movieListApi);
                 intentMovie.putExtra(DetailActivity.EXTRA_FROM, DetailActivity.EXTRA_FROM_MOVIE);
                 intentMovie.putExtra(DetailActivity.EXTRA_POSITION, position);
                 startActivity(intentMovie);
@@ -143,7 +141,5 @@ public class MovieFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.d(TAG,"onstart");
-//        listMovieAdapter.notifyDataSetChanged();
-        //recyclerView.invalidate();
     }
 }

@@ -18,10 +18,11 @@
 
 
     <string name="overview">Ikhtisar</string>
-    <string name="runtime">Waktu jalan :</string>
-    <string name="budget">Anggaran :</string>
-    <string name="revenue">Pendapatan :</string>
-    <string name="status">Status :</string>
+    <string name="origin_lang">Bahasa Asli :</string>
+    <string name="adult">Dewasa :</string>
+    <string name="vote_count">Perhitungan Memilih :</string>
+    <string name="vote_average">Total Perhitungan :</string>
+    <string name="original_country">Kota Asli :</string>
 
 
 </resources>

@@ -8,20 +8,25 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.movieandtvshowcatalogue.config.Constants;
 import com.example.movieandtvshowcatalogue.model.Movie;
+import com.example.movieandtvshowcatalogue.model.MovieApi;
 import com.example.movieandtvshowcatalogue.model.TvShow;
+import com.example.movieandtvshowcatalogue.model.TvShowApi;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private TextView tvRuntime,tvBudget,tvRevenue,tvGenre,tvDescription,tvRating,tvTitle,tvDate,
-            tvStatus,tvLanguage,tvGenreTvShow,tvRuntimeTvShow;
+    private TextView tvDescription,tvTitle,tvDate,tvPopularity,tvPopularityTvShow,tvVoteCount,tvVoteCountTvShow,
+    tvVoteAverage,tvVoteAverageTvShow,tvOriginalLang,tvOriginalLangTvShow,tvAdult,tvOriginCountry;
+
     private ImageView imgPhoto;
     private int position;
     private String from;
-    View informationMovie,informatonTvShow;
+    View informationMovie,informationTvShow;
 
     public static final String EXTRA_MOVIE ="movie";
     public static final String EXTRA_TVSHOW = "tvShow";
@@ -47,36 +52,43 @@ public class DetailActivity extends AppCompatActivity {
         if(from.equals(EXTRA_FROM_MOVIE)){
 
             informationMovie.setVisibility(View.VISIBLE);
-            informatonTvShow.setVisibility(View.GONE);
+            informationTvShow.setVisibility(View.GONE);
 
-            ArrayList<Movie> movies = getIntent().getParcelableArrayListExtra(EXTRA_MOVIE);
-            imgPhoto.setImageResource(movies.get(position).getPhoto());
+            ArrayList<MovieApi> movies = getIntent().getParcelableArrayListExtra(EXTRA_MOVIE);
+            Picasso.with(this).load(Constants.START_IMAGE+ movies.get(position).getPoster_path()).into(imgPhoto);
             tvTitle.setText(movies.get(position).getTitle());
-            tvDate.setText(movies.get(position).getDate());
-            tvDescription.setText(movies.get(position).getDescription());
-            tvRating.setText(movies.get(position).getRating()+"%");
-            tvGenre.setText(movies.get(position).getGenre());
-            tvRuntime.setText(movies.get(position).getRuntime());
-            tvBudget.setText(movies.get(position).getBudget());
-            tvRevenue.setText(movies.get(position).getRevenue());
+            tvDate.setText(movies.get(position).getRelease_date());
+            tvDescription.setText(movies.get(position).getOverview());
+            tvPopularity.setText(String.format("%s%%",movies.get(position).getPopularity()));
+            tvOriginalLang.setText(movies.get(position).getOriginal_language());
+            tvVoteCount.setText(String.format("%s%%",movies.get(position).getVote_count()));
+            tvVoteAverage.setText(String.format("%s%%",movies.get(position).getVote_average()));
+            if(movies.get(position).isAdult()){
+                tvAdult.setText("Yes");
+            }else {
+                tvAdult.setText("No");
+            }
+
+
             setActionBarTitle(getString(R.string.detail_movie));
 
 
         }else{
 
             informationMovie.setVisibility(View.GONE);
-            informatonTvShow.setVisibility(View.VISIBLE);
+            informationTvShow.setVisibility(View.VISIBLE);
 
-            ArrayList<TvShow> tvShows = getIntent().getParcelableArrayListExtra(EXTRA_TVSHOW);
-            imgPhoto.setImageResource(tvShows.get(position).getPhoto());
-            tvTitle.setText(tvShows.get(position).getTitle());
-            tvDate.setText(tvShows.get(position).getDate());
-            tvDescription.setText(tvShows.get(position).getDescription());
-            tvRating.setText(tvShows.get(position).getRating()+"%");
-            tvGenreTvShow.setText(tvShows.get(position).getGenre());
-            tvRuntimeTvShow.setText(tvShows.get(position).getRuntime());
-            tvStatus.setText(tvShows.get(position).getStatus());
-            tvLanguage.setText(tvShows.get(position).getLanguage());
+            ArrayList<TvShowApi> tvShows = getIntent().getParcelableArrayListExtra(EXTRA_TVSHOW);
+            Picasso.with(this).load(Constants.START_IMAGE+ tvShows.get(position).getPoster_path()).into(imgPhoto);
+            tvTitle.setText(tvShows.get(position).getName());
+            tvDate.setText(tvShows.get(position).getFirst_air_date());
+            tvDescription.setText(tvShows.get(position).getOverview());
+            tvVoteAverageTvShow.setText(String.format("%s%%",tvShows.get(position).getVote_average()));
+            tvVoteCountTvShow.setText(String.format("%s%%",tvShows.get(position).getVote_count()));
+            tvPopularityTvShow.setText(String.format("%s%%",tvShows.get(position).getPopularity()));
+            tvOriginalLangTvShow.setText(tvShows.get(position).getOriginal_language());
+            tvOriginCountry.setText(tvShows.get(position).getOrigin_country()[0]);
+
             setActionBarTitle(getString(R.string.detail_tvshow));
 
         }
@@ -89,17 +101,20 @@ public class DetailActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitleDetail);
         tvDate = findViewById(R.id.tvDateDetail);
         tvDescription = findViewById(R.id.tvDescriptionDetail);
-        tvRating = findViewById(R.id.tvRatingDetail);
-        tvGenre = findViewById(R.id.tvGenre);
-        tvBudget = findViewById(R.id.tvBudget);
-        tvRevenue = findViewById(R.id.tvRevenue);
-        tvRuntime = findViewById(R.id.tvRuntime);
-        tvStatus = findViewById(R.id.tvStatusTvShow);
-        tvLanguage = findViewById(R.id.tvLanguageTvShow);
-        tvGenreTvShow = findViewById(R.id.tvGenreTvShow);
-        tvRuntimeTvShow = findViewById(R.id.tvRuntimeTvShow);
+        tvOriginalLang = findViewById(R.id.tv_ori_lang);
+        tvOriginalLangTvShow = findViewById(R.id.tv_ori_lang_tvShow);
+        tvOriginCountry = findViewById(R.id.tv_origin_country_tvShow);
+        tvAdult = findViewById(R.id.tv_adult);
+        tvPopularity = findViewById(R.id.tv_popularity);
+        tvPopularityTvShow = findViewById(R.id.tv_popularity_tvShow);
+        tvVoteAverage = findViewById(R.id.tv_vote_average);
+        tvVoteAverageTvShow = findViewById(R.id.tv_vote_average_tvShow);
+        tvVoteCount = findViewById(R.id.tv_vote_count);
+        tvVoteCountTvShow = findViewById(R.id.tv_vote_count_tvShow);
+
+
         informationMovie = findViewById(R.id.layout_movie);
-        informatonTvShow = findViewById(R.id.layout_tvshow);
+        informationTvShow = findViewById(R.id.layout_tvshow);
     }
 
     private void setActionBarTitle(String title){

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.movieandtvshowcatalogue.R;
+import com.example.movieandtvshowcatalogue.config.Constants;
 import com.example.movieandtvshowcatalogue.model.Movie;
 import com.example.movieandtvshowcatalogue.model.MovieApi;
 import com.squareup.picasso.Picasso;
@@ -50,7 +51,7 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.Cate
         categoryViewHolder.tvTitle.setText(getListMovie().get(i).getTitle());
         categoryViewHolder.tvDate.setText(getListMovie().get(i).getRelease_date());
         categoryViewHolder.tvPopularity.setText(String.format("%s%%",getListMovie().get(i).getPopularity()));
-        Picasso.with(context).load("https://image.tmdb.org/t/p/w185"+getListMovie().get(i).getPoster_path())
+        Picasso.with(context).load(Constants.START_IMAGE +getListMovie().get(i).getPoster_path())
         .into(categoryViewHolder.imgPhoto);
 
     }

@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     private final String TAG = "mydebug_MainActivity";
-    Fragment currentFragment = new MovieFragment();
     String fragmentTag = "myfragment";
-    FragmentManager fragmentManager = getSupportFragmentManager();
     private ViewPager viewPager;
 
     @Override
@@ -52,14 +50,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        Log.d(TAG,"Activity");
-        Log.d(TAG,"fragment_tag "+fragmentTag);
+        Log.d(TAG, "Activity");
+        Log.d(TAG, "fragment_tag " + fragmentTag);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Movie"));
-        tabLayout.addTab(tabLayout.newTab().setText("TvShow"));
+        tabLayout.addTab(tabLayout.newTab().setText(getResources().getText(R.string.movie)));
+        tabLayout.addTab(tabLayout.newTab().setText(getResources().getText(R.string.tv_show)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
-        final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+
+        final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -79,61 +79,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//
-//        if(fragmentManager.findFragmentByTag(fragmentTag) == null) {
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.frame_layout, currentFragment, fragmentTag);
-//            transaction.commit();
-//        }
-//
-//
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//
-//                    switch (tab.getPosition()){
-//                    case 0:
-//                        currentFragment = new MovieFragment();
-//                        fragmentTag = "myFragment";
-//                        break;
-//                    case 1:
-//                        currentFragment = new TvShowFragment();
-//                        fragmentTag = "secondFragment";
-//                        break;
-//                }
-//
-//                Log.d(TAG,"fragment_tag inside "+fragmentTag);
-//                if(fragmentManager.findFragmentByTag(fragmentTag) == null) {
-//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame_layout, currentFragment, fragmentTag);
-//                    transaction.commit();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options,menu);
+        getMenuInflater().inflate(R.menu.options, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_change_settings){
+        if (item.getItemId() == R.id.action_change_settings) {
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
         }

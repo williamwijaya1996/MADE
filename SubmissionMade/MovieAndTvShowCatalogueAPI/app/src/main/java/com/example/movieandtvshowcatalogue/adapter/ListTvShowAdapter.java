@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.movieandtvshowcatalogue.R;
+import com.example.movieandtvshowcatalogue.config.Constants;
 import com.example.movieandtvshowcatalogue.model.TvShow;
 import com.example.movieandtvshowcatalogue.model.TvShowApi;
 import com.squareup.picasso.Picasso;
@@ -47,7 +48,7 @@ public class ListTvShowAdapter extends RecyclerView.Adapter<ListTvShowAdapter.Ca
         categoryViewHolder.tvTitle.setText(getListTvShow().get(i).getName());
         categoryViewHolder.tvDate.setText(getListTvShow().get(i).getFirst_air_date());
         categoryViewHolder.tvPopularity.setText(String.format("%s%%",getListTvShow().get(i).getPopularity()));
-        Picasso.with(context).load("https://image.tmdb.org/t/p/w185"+getListTvShow().get(i).getPoster_path())
+        Picasso.with(context).load(Constants.START_IMAGE+getListTvShow().get(i).getPoster_path())
                 .into(categoryViewHolder.imgPhoto);
     }
 
