@@ -23,6 +23,8 @@
     <string name="vote_count">Perhitungan Memilih :</string>
     <string name="vote_average">Total Perhitungan :</string>
     <string name="original_country">Kota Asli :</string>
-
+    <string name="error_message">Oops ada sesuatu yang bermasalah</string>
+    <string name="ok">OK</string>
+    <string name="retry">ulangi</string>
 
 </resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Katalog Film dan Acara Tv</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">Film</string>
+    <string name="tv_show">Acara Tv</string>
+    <string name="title_movie_tvshow">Daftar Film dan Acara Tv</string>
+    <string name="title">judul</string>
+    <string name="popularity">Popularitas :</string>
+
+
+    <string name="more_information">Informasi Lebih Lanjut</string>
+    <string name="detail_movie">Perincian Film</string>
+    <string name="detail_tvshow">Perincian Acara Tv</string>
+
+
+
+    <string name="overview">Ikhtisar</string>
+    <string name="origin_lang">Bahasa Asli :</string>
+    <string name="adult">Dewasa :</string>
+    <string name="vote_count">Perhitungan Memilih :</string>
+    <string name="vote_average">Total Perhitungan :</string>
+    <string name="original_country">Kota Asli :</string>
+    <string name="error_message">Oops ada sesuatu yang bermasalah</string>
+    <string name="ok">OK</string>
+    <string name="retry">ulangi</string>
+
+</resources>

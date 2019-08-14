@@ -1,6 +1,8 @@
 package com.example.movieandtvshowcatalogue.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -96,7 +98,16 @@ public class TvShowFragment extends Fragment {
 
             @Override
             public void onFailure(Call<TvShowApiResponse> call, Throwable t) {
-                Log.d(TAG,t.toString());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage(getResources().getString(R.string.error_message));
+                builder.setPositiveButton(getString(R.string.retry), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        getTvShowApi();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 

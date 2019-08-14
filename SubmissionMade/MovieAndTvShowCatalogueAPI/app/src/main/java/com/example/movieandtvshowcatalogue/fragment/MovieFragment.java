@@ -1,6 +1,8 @@
 package com.example.movieandtvshowcatalogue.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -98,7 +100,16 @@ public class MovieFragment extends Fragment {
 
             @Override
             public void onFailure(Call<MovieApiResponse> call, Throwable t) {
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage(getResources().getString(R.string.error_message));
+                builder.setPositiveButton(getString(R.string.retry), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        getMovieApi();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }

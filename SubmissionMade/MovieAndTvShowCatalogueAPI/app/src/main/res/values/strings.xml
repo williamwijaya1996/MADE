@@ -24,6 +24,9 @@
     <string name="vote_count">Vote Count :</string>
     <string name="vote_average">Vote Average :</string>
     <string name="original_country">Original Country :</string>
+    <string name="error_message">Oops something Went Wrong</string>
+    <string name="ok">OK</string>
+    <string name="retry">retry</string>
 
 
 </resources>
