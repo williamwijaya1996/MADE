@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.movieandtvshowcatalogue.DetailActivity;
+import com.example.movieandtvshowcatalogue.MainActivity;
 import com.example.movieandtvshowcatalogue.R;
 import com.example.movieandtvshowcatalogue.adapter.ListItemListener;
 import com.example.movieandtvshowcatalogue.adapter.ListMovieAdapter;
@@ -25,8 +26,10 @@ import com.example.movieandtvshowcatalogue.api.ApiInterface;
 import com.example.movieandtvshowcatalogue.config.Constants;
 import com.example.movieandtvshowcatalogue.model.MovieApi;
 import com.example.movieandtvshowcatalogue.model.MovieApiResponse;
+import com.example.movieandtvshowcatalogue.roomdb.Movies;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -127,11 +130,19 @@ public class MovieFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new ListItemListener(getContext(), recyclerView, new ListItemListener.NotifyClickListener() {
             @Override
             public void onClick(View view, int position) {
+                List<Movies> moviesList = MainActivity.myMoviesDataBase.myDao().getMovies();
+                boolean checked =false;
+                for(int i =0;i<moviesList.size();i++){
+                    if(movieListApi.get(position).getId() == moviesList.get(i).getId()){
+                        checked =true;
+                    }
+                }
 
                 Intent intentMovie = new Intent(getActivity(), DetailActivity.class);
                 intentMovie.putExtra(DetailActivity.EXTRA_MOVIE, movieListApi);
                 intentMovie.putExtra(DetailActivity.EXTRA_FROM, DetailActivity.EXTRA_FROM_MOVIE);
                 intentMovie.putExtra(DetailActivity.EXTRA_POSITION, position);
+                intentMovie.putExtra(DetailActivity.EXTRA_CHECKED,checked);
                 startActivity(intentMovie);
             }
 

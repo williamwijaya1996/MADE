@@ -4,8 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TvShowApi implements Parcelable {
+
+    private int id;
     private String name;
-   private double vote_count;
+    private double vote_count;
     private String first_air_date;
     private String original_language;
     private double vote_average;
@@ -28,6 +30,7 @@ public class TvShowApi implements Parcelable {
     }
 
     protected TvShowApi(Parcel in) {
+        id = in.readInt();
         name = in.readString();
         vote_count = in.readDouble();
         first_air_date = in.readString();
@@ -50,6 +53,14 @@ public class TvShowApi implements Parcelable {
             return new TvShowApi[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -130,6 +141,7 @@ public class TvShowApi implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
         parcel.writeString(name);
         parcel.writeDouble(vote_count);
         parcel.writeString(first_air_date);

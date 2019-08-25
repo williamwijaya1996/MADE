@@ -9,11 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.movieandtvshowcatalogue.R;
 import com.example.movieandtvshowcatalogue.config.Constants;
-import com.example.movieandtvshowcatalogue.model.Movie;
 import com.example.movieandtvshowcatalogue.model.MovieApi;
 import com.squareup.picasso.Picasso;
 

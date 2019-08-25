@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.movieandtvshowcatalogue.R;
 import com.example.movieandtvshowcatalogue.config.Constants;
-import com.example.movieandtvshowcatalogue.model.TvShow;
 import com.example.movieandtvshowcatalogue.model.TvShowApi;
 import com.squareup.picasso.Picasso;
 

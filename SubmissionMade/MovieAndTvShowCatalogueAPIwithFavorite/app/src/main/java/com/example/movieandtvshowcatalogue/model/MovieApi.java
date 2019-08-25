@@ -5,15 +5,16 @@ import android.os.Parcelable;
 
 public class MovieApi implements Parcelable {
 
-    int vote_count;
-    double vote_average;
-    String title;
-    double popularity;
-    String poster_path;
-    String original_language;
-    boolean adult;
-    String overview;
-    String release_date;
+    private int id;
+    private int vote_count;
+    private double vote_average;
+    private String title;
+    private double popularity;
+    private String poster_path;
+    private String original_language;
+    private boolean adult;
+    private String overview;
+    private String release_date;
 
     public MovieApi(int vote_count, double vote_average, String title,
                     double popularity, String poster_path, String original_language,
@@ -30,6 +31,7 @@ public class MovieApi implements Parcelable {
     }
 
     protected MovieApi(Parcel in) {
+        id = in.readInt();
         vote_count = in.readInt();
         vote_average = in.readDouble();
         title = in.readString();
@@ -52,6 +54,14 @@ public class MovieApi implements Parcelable {
             return new MovieApi[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getVote_count() {
         return vote_count;
@@ -132,6 +142,7 @@ public class MovieApi implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
         parcel.writeInt(vote_count);
         parcel.writeDouble(vote_average);
         parcel.writeString(title);

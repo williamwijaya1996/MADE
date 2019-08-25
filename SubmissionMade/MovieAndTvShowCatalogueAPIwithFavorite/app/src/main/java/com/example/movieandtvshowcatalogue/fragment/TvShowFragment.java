@@ -4,7 +4,6 @@ package com.example.movieandtvshowcatalogue.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.movieandtvshowcatalogue.DetailActivity;
+import com.example.movieandtvshowcatalogue.MainActivity;
 import com.example.movieandtvshowcatalogue.R;
 import com.example.movieandtvshowcatalogue.adapter.ListItemListener;
 import com.example.movieandtvshowcatalogue.adapter.ListTvShowAdapter;
@@ -26,8 +26,10 @@ import com.example.movieandtvshowcatalogue.api.ApiInterface;
 import com.example.movieandtvshowcatalogue.config.Constants;
 import com.example.movieandtvshowcatalogue.model.TvShowApi;
 import com.example.movieandtvshowcatalogue.model.TvShowApiResponse;
+import com.example.movieandtvshowcatalogue.roomdb.TvShows;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -124,11 +126,19 @@ public class TvShowFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new ListItemListener(getContext(), recyclerView, new ListItemListener.NotifyClickListener() {
             @Override
             public void onClick(View view, int position) {
+                List<TvShows> tvShowsList = MainActivity.myMoviesDataBase.tvShowDao().getTvshows();
+                boolean checked = false;
+                for(int i = 0; i<tvShowsList.size();i++){
+                    if(tvShowListApi.get(position).getId() == tvShowsList.get(i).getId()){
+                        checked = true;
+                    }
+                }
 
                 Intent intentTvShow = new Intent(getActivity(), DetailActivity.class);
                 intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowListApi);
                 intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FROM_TVSHOW);
                 intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
+                intentTvShow.putExtra(DetailActivity.EXTRA_CHECKED,checked);
                 startActivity(intentTvShow);
             }
 
