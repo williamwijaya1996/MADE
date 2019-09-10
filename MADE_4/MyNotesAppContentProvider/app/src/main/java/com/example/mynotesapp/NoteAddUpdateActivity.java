@@ -47,6 +47,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
         btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
         noteHelper = NoteHelper.getInstance(getApplicationContext());
+
         note = getIntent().getParcelableExtra(EXTRA_NOTE);
         if (note != null) {
             position = getIntent().getIntExtra(EXTRA_POSITION, 0);

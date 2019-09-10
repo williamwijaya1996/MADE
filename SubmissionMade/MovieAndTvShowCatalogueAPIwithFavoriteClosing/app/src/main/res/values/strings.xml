@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">MovieAndTvShowCatalogue</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">Movie</string>
+    <string name="tv_show">Tv Show</string>
+    <string name="title_movie_tvshow">List Movie And Tv Show</string>
+    <string name="title">title</string>
+    <string name="popularity">popularity :</string>
+    <string name="overview">Overview</string>
+
+    <string name="more_information">More Information</string>
+    <string name="detail_movie">Detail Movie</string>
+    <string name="detail_tvshow">Detail Tv Show</string>
+    <string name="favorite">Favorite</string>
+
+
+    <string name="origin_lang">Original Language :</string>
+    <string name="adult">Adult :</string>
+    <string name="vote_count">Vote Count :</string>
+    <string name="vote_average">Vote Average :</string>
+    <string name="original_country">Original Country :</string>
+    <string name="error_message">Oops something Went Wrong</string>
+    <string name="ok">OK</string>
+    <string name="retry">retry</string>
+
+    <string name="set_reminder">setting reminder</string>
+    <string name="set_lang">setting language</string>
+
+    <string name="reminder_options">Reminder Options</string>
+    <string name="search_movie">Search Movie</string>
+    <string name="search_tvshow">Search TvShow</string>
+    <string name="search_hint">Search</string>
+
+    <string name="no_result">No Result</string>
+    <string name="add_widget">Add widget</string>
+    <string name="appwidget_text">IMAGE FAVORITE</string>
+    <string name="empty_text">NO FAVORITE</string>
+
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="release_reminder">Release Reminder</string>
+</resources>

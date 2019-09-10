@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void sendNotification(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://dicoding.com"));
+        Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

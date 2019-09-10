@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_search"
+        app:showAsAction="ifRoom"
+        android:title="sdad"
+        android:icon="@drawable/ic_search"
+        />
+    <item
         android:id="@+id/action_change_settings"
         app:showAsAction="ifRoom"
         android:title=""
         android:icon="@drawable/ic_settings"
         />
+
 </menu>
