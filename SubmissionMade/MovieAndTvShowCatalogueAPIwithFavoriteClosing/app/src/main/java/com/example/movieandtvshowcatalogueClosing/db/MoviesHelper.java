@@ -23,13 +23,13 @@ import static com.example.movieandtvshowcatalogueClosing.db.DatabaseContract.Fav
 public class MoviesHelper {
 
     private static final String DATABASE_TABLE_MOVIES = TABLE_NAME_MOVIES_FAVORITE;
-    private final DatabaseHelperMovies databaseHelperMovies;
+    private final DatabaseHelper databaseHelper;
     private static MoviesHelper INSTANCE;
 
     private SQLiteDatabase database;
 
             private MoviesHelper(Context context){
-                databaseHelperMovies = new DatabaseHelperMovies(context);
+                databaseHelper = new DatabaseHelper(context);
             }
 
             public static MoviesHelper getInstance(Context context){
@@ -44,11 +44,11 @@ public class MoviesHelper {
             }
 
             public void open() throws SQLException{
-                database = databaseHelperMovies.getReadableDatabase();
+                database = databaseHelper.getReadableDatabase();
             }
 
             public void close(){
-                databaseHelperMovies.close();
+                databaseHelper.close();
 
                 if(database.isOpen())
                     database.close();

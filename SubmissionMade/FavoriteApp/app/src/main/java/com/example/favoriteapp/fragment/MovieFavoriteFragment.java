@@ -17,9 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.favoriteapp.LoadMoviesCallback;
+import com.example.favoriteapp.LoadCallback;
 import com.example.favoriteapp.R;
-import com.example.favoriteapp.adapter.ListMovieFavoriteAdapter;
+import com.example.favoriteapp.adapter.FavoriteMovieAdapter;
 import com.example.favoriteapp.db.DatabaseContract;
 import com.example.favoriteapp.model.Movies;
 
@@ -32,11 +32,11 @@ import static com.example.favoriteapp.db.DatabaseContract.FavoriteColumn.CONTENT
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MovieFavoriteFragment extends Fragment implements LoadMoviesCallback {
+public class MovieFavoriteFragment extends Fragment implements LoadCallback {
 
     RecyclerView recyclerView;
     public static ArrayList<Movies> moviesListFavorite = new ArrayList<>();
-    ListMovieFavoriteAdapter listMovieFavoriteAdapter;
+    FavoriteMovieAdapter favoriteMovieAdapter;
 
 
 //    public static final String COLUMN_TITLE = "title";
@@ -71,7 +71,7 @@ public class MovieFavoriteFragment extends Fragment implements LoadMoviesCallbac
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        listMovieFavoriteAdapter = new ListMovieFavoriteAdapter( getContext());
+        favoriteMovieAdapter = new FavoriteMovieAdapter( getContext());
         new getData(getContext(), this).execute();
 
 
@@ -99,13 +99,13 @@ public class MovieFavoriteFragment extends Fragment implements LoadMoviesCallbac
     public void postExecute(Cursor cursor) {
         moviesListFavorite = mapCursorToArrayList(cursor);
         if (moviesListFavorite.size() > 0) {
-            listMovieFavoriteAdapter.notifyDataSetChanged();
-            listMovieFavoriteAdapter.setListMovie(moviesListFavorite);
+            favoriteMovieAdapter.notifyDataSetChanged();
+            favoriteMovieAdapter.setListData(moviesListFavorite);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(listMovieFavoriteAdapter);
+            recyclerView.setAdapter(favoriteMovieAdapter);
             Log.d("post ", "ada data" + moviesListFavorite.size());
         } else {
-            listMovieFavoriteAdapter.notifyDataSetChanged();
+            favoriteMovieAdapter.notifyDataSetChanged();
             Toast.makeText(getContext(), "Tidak ada data saat ini", Toast.LENGTH_SHORT).show();
         }
 
@@ -114,9 +114,9 @@ public class MovieFavoriteFragment extends Fragment implements LoadMoviesCallbac
     private static class getData extends AsyncTask<Void, Void, Cursor> {
 
         private final WeakReference<Context> weakContext;
-        private final WeakReference<LoadMoviesCallback> weakCallback;
+        private final WeakReference<LoadCallback> weakCallback;
 
-        private getData(Context context, LoadMoviesCallback callback) {
+        private getData(Context context, LoadCallback callback) {
             weakContext = new WeakReference<>(context);
             weakCallback = new WeakReference<>(callback);
         }

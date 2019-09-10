@@ -252,6 +252,15 @@ public class DetailActivity extends AppCompatActivity {
 
                         MainActivity.myMoviesDataBase.tvShowDao().addTvShow(tvShowsDb);
 
+                        ContentValues values = new ContentValues();
+                        values.put(DatabaseContract.FavoriteColumn.TITLE,tvShows.get(position).getName());
+                        values.put(DatabaseContract.FavoriteColumn.DATE,tvShows.get(position).getFirst_air_date());
+                        values.put(DatabaseContract.FavoriteColumn.POSTER,tvShows.get(position).getPoster_path());
+                        values.put(DatabaseContract.FavoriteColumn.POPULARITY,tvShows.get(position).getPopularity());
+                        values.put(DatabaseContract.FavoriteColumn.ID,tvShows.get(position).getId());
+
+                        getContentResolver().insert(DatabaseContract.FavoriteColumn.CONTENT_URI_TVSHOW,values);
+
                     }else if(from.equals(EXTRA_FAVORITE_TVSHOW)){
                         TvShows tvShowsDb = new TvShows();
                         tvShowsDb.setId(tvShowsFavorite.get(position).getId());
@@ -265,6 +274,17 @@ public class DetailActivity extends AppCompatActivity {
                         tvShowsDb.setVote_count(tvShowsFavorite.get(position).getVote_count());
 
                         MainActivity.myMoviesDataBase.tvShowDao().addTvShow(tvShowsDb);
+
+                        ContentValues values = new ContentValues();
+                        values.put(DatabaseContract.FavoriteColumn.TITLE,tvShowsFavorite.get(position).getName());
+                        values.put(DatabaseContract.FavoriteColumn.DATE,tvShowsFavorite.get(position).getFirst_air_date());
+                        values.put(DatabaseContract.FavoriteColumn.POSTER,tvShowsFavorite.get(position).getPoster_path());
+                        values.put(DatabaseContract.FavoriteColumn.POPULARITY,tvShowsFavorite.get(position).getPopularity());
+                        values.put(DatabaseContract.FavoriteColumn.ID,tvShowsFavorite.get(position).getId());
+
+                        getContentResolver().insert(DatabaseContract.FavoriteColumn.CONTENT_URI_TVSHOW,values);
+
+
                     }
                 }else{
                     if(from.equals(EXTRA_FROM_MOVIE)){
@@ -289,10 +309,15 @@ public class DetailActivity extends AppCompatActivity {
                         tvShowsDb.setId(tvShows.get(position).getId());
                         MainActivity.myMoviesDataBase.tvShowDao().deleteTvShows(tvShowsDb);
 
+                        getContentResolver().delete(getIntent().getData(),null,null);
+
                     }else{
                         TvShows tvShowsDb = new TvShows();
                         tvShowsDb.setId(tvShowsFavorite.get(position).getId());
                         MainActivity.myMoviesDataBase.tvShowDao().deleteTvShows(tvShowsDb);
+
+                        getContentResolver().delete(getIntent().getData(),null,null);
+
                     }
 
                 }

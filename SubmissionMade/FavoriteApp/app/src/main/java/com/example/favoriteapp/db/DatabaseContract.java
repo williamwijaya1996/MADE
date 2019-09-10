@@ -14,7 +14,7 @@ public class DatabaseContract {
 
     public static final class FavoriteColumn implements BaseColumns {
         public static final String TABLE_NAME_MOVIES_FAVORITE = "moviesFavorite";
-        public static final String TITLE = "title";
+        public static final String TABLE_NAME_TVSHOW_FAVORITE = "tvshowFavorite";public static final String TITLE = "title";
         public static final String DATE = "release_date";
         public static final String POSTER = "poster_path";
         public static final String POPULARITY = "popularity";
@@ -23,6 +23,11 @@ public class DatabaseContract {
         public static final Uri CONTENT_URI_MOVIES = new Uri.Builder().scheme(SCHEME)
                 .authority(AUTHORITY)
                 .appendPath(TABLE_NAME_MOVIES_FAVORITE)
+                .build();
+
+        public static final Uri CONTENT_URI_TVSHOW = new Uri.Builder().scheme(SCHEME)
+                .authority(AUTHORITY)
+                .appendPath(TABLE_NAME_TVSHOW_FAVORITE)
                 .build();
     }
 

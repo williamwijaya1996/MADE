@@ -16,19 +16,19 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class ListMovieFavoriteAdapter extends RecyclerView.Adapter<ListMovieFavoriteAdapter.CategoryViewHolder>{
+public class FavoriteMovieAdapter extends RecyclerView.Adapter<FavoriteMovieAdapter.CategoryViewHolder>{
 
     private Context context;
     private ArrayList<Movies> listMovie = new ArrayList<>();
 
 
-    public ListMovieFavoriteAdapter( Context context) {
+    public FavoriteMovieAdapter(Context context) {
 
         this.context = context;
         this.notifyDataSetChanged();
     }
 
-    public void setListMovie(ArrayList<Movies> listMovies) {
+    public void setListData(ArrayList<Movies> listMovies) {
         listMovie.clear();
         listMovie.addAll(listMovies);
         this.listMovie = listMovies;
@@ -39,13 +39,13 @@ public class ListMovieFavoriteAdapter extends RecyclerView.Adapter<ListMovieFavo
     }
 
     @Override
-    public ListMovieFavoriteAdapter.CategoryViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public FavoriteMovieAdapter.CategoryViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemRow = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movies,viewGroup,false);
         return new CategoryViewHolder(itemRow);
     }
 
     @Override
-    public void onBindViewHolder(ListMovieFavoriteAdapter.CategoryViewHolder categoryViewHolder, int i) {
+    public void onBindViewHolder(FavoriteMovieAdapter.CategoryViewHolder categoryViewHolder, int i) {
         categoryViewHolder.tvTitle.setText(getListMovie().get(i).getTitle());
         categoryViewHolder.tvDate.setText(getListMovie().get(i).getRelease_date());
         categoryViewHolder.tvPopularity.setText(String.format("%s%%",getListMovie().get(i).getPopularity()));

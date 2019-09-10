@@ -4,6 +4,7 @@ package com.example.movieandtvshowcatalogueClosing.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +37,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import static com.example.movieandtvshowcatalogueClosing.db.DatabaseContract.FavoriteColumn.CONTENT_URI_TVSHOW;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -134,10 +136,13 @@ public class TvShowFragment extends Fragment {
                     }
                 }
 
+                Uri uri = Uri.parse(CONTENT_URI_TVSHOW+"/"+tvShowListApi.get(position).getId());
+
                 Intent intentTvShow = new Intent(getActivity(), DetailActivity.class);
                 intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowListApi);
                 intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FROM_TVSHOW);
                 intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
+                intentTvShow.setData(uri);
                 intentTvShow.putExtra(DetailActivity.EXTRA_CHECKED,checked);
                 startActivity(intentTvShow);
             }

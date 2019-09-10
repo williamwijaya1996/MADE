@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,6 +41,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.movieandtvshowcatalogueClosing.db.DatabaseContract.FavoriteColumn.CONTENT_URI_MOVIES;
+import static com.example.movieandtvshowcatalogueClosing.db.DatabaseContract.FavoriteColumn.CONTENT_URI_TVSHOW;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -244,10 +249,14 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
 
+                Uri uri = Uri.parse(CONTENT_URI_MOVIES+"/"+moviesSearchListApi.get(position).getId());
+
+
                 Intent intentMovie = new Intent(SearchActivity.this, DetailActivity.class);
                 intentMovie.putExtra(DetailActivity.EXTRA_MOVIE, moviesSearchListApi);
                 intentMovie.putExtra(DetailActivity.EXTRA_FROM, DetailActivity.EXTRA_FROM_MOVIE);
                 intentMovie.putExtra(DetailActivity.EXTRA_POSITION, position);
+                intentMovie.setData(uri);
                 intentMovie.putExtra(DetailActivity.EXTRA_CHECKED,checked);
                 startActivity(intentMovie);
             }
@@ -278,10 +287,14 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
 
+                Uri uri = Uri.parse(CONTENT_URI_TVSHOW+"/"+tvShowSearchListApi.get(position).getId());
+
+
                 Intent intentTvShow = new Intent(SearchActivity.this, DetailActivity.class);
                 intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowSearchListApi);
                 intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FROM_TVSHOW);
                 intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
+                intentTvShow.setData(uri);
                 intentTvShow.putExtra(DetailActivity.EXTRA_CHECKED,checked);
                 startActivity(intentTvShow);
             }

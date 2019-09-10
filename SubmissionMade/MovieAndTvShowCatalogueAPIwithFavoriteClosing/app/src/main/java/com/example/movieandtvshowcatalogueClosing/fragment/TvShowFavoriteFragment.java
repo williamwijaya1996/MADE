@@ -2,6 +2,7 @@ package com.example.movieandtvshowcatalogueClosing.fragment;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,8 @@ import com.example.movieandtvshowcatalogueClosing.roomdb.TvShows;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.movieandtvshowcatalogueClosing.db.DatabaseContract.FavoriteColumn.CONTENT_URI_TVSHOW;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,10 +74,15 @@ public class TvShowFavoriteFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new ListItemListener(getContext(), recyclerView, new ListItemListener.NotifyClickListener() {
             @Override
             public void onClick(View view, int position) {
+
+                Uri uri = Uri.parse(CONTENT_URI_TVSHOW+"/"+tvShowListFavorite.get(position).getId());
+
+
                 Intent intentTvShow = new Intent(getActivity(), DetailActivity.class);
                 intentTvShow.putExtra(DetailActivity.EXTRA_TVSHOW,tvShowListFavorite);
                 intentTvShow.putExtra(DetailActivity.EXTRA_FROM,DetailActivity.EXTRA_FAVORITE_TVSHOW);
                 intentTvShow.putExtra(DetailActivity.EXTRA_POSITION,position);
+                intentTvShow.setData(uri);
                 intentTvShow.putExtra(DetailActivity.EXTRA_CHECKED,true);
                 startActivity(intentTvShow);
             }
